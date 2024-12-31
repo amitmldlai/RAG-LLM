@@ -1,0 +1,848 @@
+12:39:05,819 graphrag.cli.index INFO Logging enabled at D:\Upwork\Personal_amitdl\RAG-LLM\Microsoft-Graph-RAG\logs\indexing-engine.log
+12:39:05,821 graphrag.cli.index INFO Starting pipeline run for: 20241231-123905, dry_run=False
+12:39:05,821 graphrag.cli.index INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "encoding_model": "cl100k_base",
+        "model": "gpt-4-turbo-preview",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "request_timeout": 180.0,
+        "api_base": null,
+        "api_version": null,
+        "proxy": null,
+        "audience": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25,
+        "responses": null
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG",
+    "reporting": {
+        "type": "file",
+        "base_dir": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG\\logs",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG\\output",
+        "storage_account_blob_url": null
+    },
+    "update_index_storage": null,
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "encoding_model": "cl100k_base",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": {
+            "type": "lancedb",
+            "db_uri": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG\\output\\lancedb",
+            "container_name": "==== REDACTED ====",
+            "overwrite": true
+        },
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": "cl100k_base"
+    },
+    "snapshots": {
+        "embeddings": false,
+        "graphml": false,
+        "transient": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": "cl100k_base"
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": "cl100k_base"
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "prompt": "prompts/local_search_system_prompt.txt",
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "map_prompt": "prompts/global_search_map_system_prompt.txt",
+        "reduce_prompt": "prompts/global_search_reduce_system_prompt.txt",
+        "knowledge_prompt": "prompts/global_search_knowledge_system_prompt.txt",
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32,
+        "dynamic_search_llm": "gpt-4o-mini",
+        "dynamic_search_threshold": 1,
+        "dynamic_search_keep_parent": false,
+        "dynamic_search_num_repeats": 1,
+        "dynamic_search_use_summary": false,
+        "dynamic_search_concurrent_coroutines": 16,
+        "dynamic_search_max_level": 2
+    },
+    "drift_search": {
+        "prompt": "prompts/drift_search_system_prompt.txt",
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 3,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "concurrency": 32,
+        "drift_k_followups": 20,
+        "primer_folds": 5,
+        "primer_llm_max_tokens": 12000,
+        "n_depth": 3,
+        "local_search_text_unit_prop": 0.9,
+        "local_search_community_prop": 0.1,
+        "local_search_top_k_mapped_entities": 10,
+        "local_search_top_k_relationships": 10,
+        "local_search_max_data_tokens": 12000,
+        "local_search_temperature": 0.0,
+        "local_search_top_p": 1.0,
+        "local_search_n": 1,
+        "local_search_llm_max_gen_tokens": 2000
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+12:39:05,824 graphrag.index.create_pipeline_config INFO skipping workflows 
+12:39:05,825 graphrag.index.run.run INFO Running pipeline
+12:39:05,825 graphrag.storage.file_pipeline_storage INFO Creating file storage at D:\Upwork\Personal_amitdl\RAG-LLM\Microsoft-Graph-RAG\output
+12:39:05,826 graphrag.index.input.factory INFO loading input from root_dir=input
+12:39:05,826 graphrag.index.input.factory INFO using file storage for input
+12:39:05,827 graphrag.storage.file_pipeline_storage INFO search D:\Upwork\Personal_amitdl\RAG-LLM\Microsoft-Graph-RAG\input for files matching .*\.txt$
+12:39:05,827 graphrag.index.input.text INFO found text files from input, found [('kyle_treatmenmt_details.txt', {})]
+12:39:05,828 graphrag.index.input.text INFO Found 1 files, loading 1
+12:39:05,828 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_final_documents', 'extract_graph', 'compute_communities', 'create_final_entities', 'create_final_relationships', 'create_final_communities', 'create_final_nodes', 'create_final_text_units', 'create_final_community_reports', 'generate_text_embeddings']
+12:39:05,828 graphrag.index.run.run INFO Final # of rows loaded: 1
+12:39:05,921 graphrag.index.run.workflow INFO dependencies for create_base_text_units: []
+12:39:05,925 datashaper.workflow.workflow INFO executing verb create_base_text_units
+12:39:06,553 graphrag.index.run.workflow INFO dependencies for create_final_documents: ['create_base_text_units']
+12:39:06,554 graphrag.index.run.workflow WARNING Dependency table create_base_text_units not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:06,557 datashaper.workflow.workflow INFO executing verb create_final_documents
+12:39:06,563 graphrag.index.exporter INFO exporting parquet table create_final_documents.parquet
+12:39:06,633 graphrag.index.run.workflow INFO dependencies for extract_graph: ['create_base_text_units']
+12:39:06,633 graphrag.index.run.workflow WARNING Dependency table create_base_text_units not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:06,637 datashaper.workflow.workflow INFO executing verb extract_graph
+12:39:27,600 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+12:39:36,967 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+12:39:38,416 graphrag.index.run.workflow INFO dependencies for compute_communities: ['extract_graph']
+12:39:38,417 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:38,425 datashaper.workflow.workflow INFO executing verb compute_communities
+12:39:49,574 graphrag.index.run.workflow INFO dependencies for create_final_entities: ['extract_graph']
+12:39:49,574 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:49,579 datashaper.workflow.workflow INFO executing verb create_final_entities
+12:39:49,581 graphrag.index.exporter INFO exporting parquet table create_final_entities.parquet
+12:39:49,693 graphrag.index.run.workflow INFO dependencies for create_final_relationships: ['extract_graph']
+12:39:49,694 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:49,699 datashaper.workflow.workflow INFO executing verb create_final_relationships
+12:39:49,703 graphrag.index.exporter INFO exporting parquet table create_final_relationships.parquet
+12:39:49,817 graphrag.index.run.workflow INFO dependencies for create_final_communities: ['extract_graph']
+12:39:49,818 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:49,824 datashaper.workflow.workflow INFO executing verb create_final_communities
+12:39:49,835 graphrag.index.exporter INFO exporting parquet table create_final_communities.parquet
+12:39:49,948 graphrag.index.run.workflow INFO dependencies for create_final_nodes: ['extract_graph', 'compute_communities']
+12:39:49,949 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:49,949 graphrag.index.run.workflow WARNING Dependency table compute_communities not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:49,956 datashaper.workflow.workflow INFO executing verb create_final_nodes
+12:39:49,961 graphrag.index.exporter INFO exporting parquet table create_final_nodes.parquet
+12:39:50,72 graphrag.index.run.workflow INFO dependencies for create_final_text_units: ['create_final_entities', 'create_final_relationships', 'create_base_text_units']
+12:39:50,72 graphrag.utils.storage INFO reading table from storage: create_final_entities.parquet
+12:39:50,78 graphrag.utils.storage INFO reading table from storage: create_final_relationships.parquet
+12:39:50,80 graphrag.index.run.workflow WARNING Dependency table create_base_text_units not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+12:39:50,88 datashaper.workflow.workflow INFO executing verb create_final_text_units
+12:39:50,96 graphrag.index.exporter INFO exporting parquet table create_final_text_units.parquet
+12:39:50,204 graphrag.index.run.workflow INFO dependencies for create_final_community_reports: ['create_final_communities', 'create_final_entities', 'create_final_relationships', 'create_final_nodes']
+12:39:50,205 graphrag.utils.storage INFO reading table from storage: create_final_communities.parquet
+12:39:50,209 graphrag.utils.storage INFO reading table from storage: create_final_entities.parquet
+12:39:50,211 graphrag.utils.storage INFO reading table from storage: create_final_relationships.parquet
+12:39:50,213 graphrag.utils.storage INFO reading table from storage: create_final_nodes.parquet
+12:39:50,223 datashaper.workflow.workflow INFO executing verb create_final_community_reports
+12:39:50,227 graphrag.index.operations.summarize_communities.prepare_community_reports INFO Number of nodes at level=0 => 12
+12:40:13,759 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+12:40:13,781 graphrag.index.exporter INFO exporting parquet table create_final_community_reports.parquet
+12:40:13,904 graphrag.index.run.workflow INFO dependencies for generate_text_embeddings: ['create_final_documents', 'create_final_community_reports', 'create_final_entities', 'create_final_relationships', 'create_final_text_units']
+12:40:13,905 graphrag.utils.storage INFO reading table from storage: create_final_documents.parquet
+12:40:13,908 graphrag.utils.storage INFO reading table from storage: create_final_community_reports.parquet
+12:40:13,911 graphrag.utils.storage INFO reading table from storage: create_final_entities.parquet
+12:40:13,914 graphrag.utils.storage INFO reading table from storage: create_final_relationships.parquet
+12:40:13,916 graphrag.utils.storage INFO reading table from storage: create_final_text_units.parquet
+12:40:13,927 datashaper.workflow.workflow INFO executing verb generate_text_embeddings
+12:40:13,928 graphrag.index.flows.generate_text_embeddings INFO Creating embeddings
+12:40:13,928 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding community.full_content: default-community-full_content
+12:40:13,942 graphrag.index.operations.embed_text.strategies.openai INFO embedding 1 inputs via 1 snippets using 1 batches. max_batch_size=16, max_tokens=8191
+12:40:14,635 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:40:14,858 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding entity.description: default-entity-description
+12:40:14,860 graphrag.index.operations.embed_text.strategies.openai INFO embedding 12 inputs via 12 snippets using 1 batches. max_batch_size=16, max_tokens=8191
+12:40:15,587 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:40:16,283 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding text_unit.text: default-text_unit-text
+12:40:16,286 graphrag.index.operations.embed_text.strategies.openai INFO embedding 1 inputs via 1 snippets using 1 batches. max_batch_size=16, max_tokens=8191
+12:40:16,852 httpx INFO HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+12:40:16,891 graphrag.cli.index INFO All workflows completed successfully.
+13:40:11,612 graphrag.cli.index INFO Logging enabled at D:\Upwork\Personal_amitdl\RAG-LLM\Microsoft-Graph-RAG\logs\indexing-engine.log
+13:40:11,619 graphrag.cli.index INFO Starting pipeline run for: 20241231-134011, dry_run=False
+13:40:11,626 graphrag.cli.index INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "openai_chat",
+        "encoding_model": "cl100k_base",
+        "model": "gpt-4-turbo-preview",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "request_timeout": 180.0,
+        "api_base": null,
+        "api_version": null,
+        "proxy": null,
+        "audience": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25,
+        "responses": null
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG",
+    "reporting": {
+        "type": "file",
+        "base_dir": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG\\logs",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG\\output",
+        "storage_account_blob_url": null
+    },
+    "update_index_storage": null,
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_embedding",
+            "encoding_model": "cl100k_base",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": {
+            "type": "lancedb",
+            "db_uri": "D:\\Upwork\\Personal_amitdl\\RAG-LLM\\Microsoft-Graph-RAG\\output\\lancedb",
+            "container_name": "==== REDACTED ====",
+            "overwrite": true
+        },
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": "cl100k_base"
+    },
+    "snapshots": {
+        "embeddings": false,
+        "graphml": false,
+        "transient": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": "cl100k_base"
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "openai_chat",
+            "encoding_model": "cl100k_base",
+            "model": "gpt-4-turbo-preview",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0,
+            "request_timeout": 180.0,
+            "api_base": null,
+            "api_version": null,
+            "proxy": null,
+            "audience": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25,
+            "responses": null
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": "cl100k_base"
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "prompt": "prompts/local_search_system_prompt.txt",
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "map_prompt": "prompts/global_search_map_system_prompt.txt",
+        "reduce_prompt": "prompts/global_search_reduce_system_prompt.txt",
+        "knowledge_prompt": "prompts/global_search_knowledge_system_prompt.txt",
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32,
+        "dynamic_search_llm": "gpt-4o-mini",
+        "dynamic_search_threshold": 1,
+        "dynamic_search_keep_parent": false,
+        "dynamic_search_num_repeats": 1,
+        "dynamic_search_use_summary": false,
+        "dynamic_search_concurrent_coroutines": 16,
+        "dynamic_search_max_level": 2
+    },
+    "drift_search": {
+        "prompt": "prompts/drift_search_system_prompt.txt",
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 3,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "concurrency": 32,
+        "drift_k_followups": 20,
+        "primer_folds": 5,
+        "primer_llm_max_tokens": 12000,
+        "n_depth": 3,
+        "local_search_text_unit_prop": 0.9,
+        "local_search_community_prop": 0.1,
+        "local_search_top_k_mapped_entities": 10,
+        "local_search_top_k_relationships": 10,
+        "local_search_max_data_tokens": 12000,
+        "local_search_temperature": 0.0,
+        "local_search_top_p": 1.0,
+        "local_search_n": 1,
+        "local_search_llm_max_gen_tokens": 2000
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+13:40:11,628 graphrag.index.create_pipeline_config INFO skipping workflows 
+13:40:11,628 graphrag.index.run.run INFO Running pipeline
+13:40:11,629 graphrag.storage.file_pipeline_storage INFO Creating file storage at D:\Upwork\Personal_amitdl\RAG-LLM\Microsoft-Graph-RAG\output
+13:40:11,629 graphrag.index.input.factory INFO loading input from root_dir=input
+13:40:11,629 graphrag.index.input.factory INFO using file storage for input
+13:40:11,629 graphrag.storage.file_pipeline_storage INFO search D:\Upwork\Personal_amitdl\RAG-LLM\Microsoft-Graph-RAG\input for files matching .*\.txt$
+13:40:11,630 graphrag.index.input.text INFO found text files from input, found [('kyle_treatmenmt_details.txt', {})]
+13:40:11,636 graphrag.index.input.text INFO Found 1 files, loading 1
+13:40:11,638 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_final_documents', 'extract_graph', 'compute_communities', 'create_final_entities', 'create_final_relationships', 'create_final_communities', 'create_final_nodes', 'create_final_text_units', 'create_final_community_reports', 'generate_text_embeddings']
+13:40:11,638 graphrag.index.run.run INFO Final # of rows loaded: 1
+13:40:11,689 graphrag.index.run.workflow INFO dependencies for create_base_text_units: []
+13:40:11,689 datashaper.workflow.workflow INFO executing verb create_base_text_units
+13:40:19,881 graphrag.index.run.workflow INFO dependencies for create_final_documents: ['create_base_text_units']
+13:40:19,882 graphrag.index.run.workflow WARNING Dependency table create_base_text_units not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:19,883 datashaper.workflow.workflow INFO executing verb create_final_documents
+13:40:19,895 graphrag.index.exporter INFO exporting parquet table create_final_documents.parquet
+13:40:19,972 graphrag.index.run.workflow INFO dependencies for extract_graph: ['create_base_text_units']
+13:40:19,972 graphrag.index.run.workflow WARNING Dependency table create_base_text_units not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:19,972 datashaper.workflow.workflow INFO executing verb extract_graph
+13:40:20,149 graphrag.index.run.workflow INFO dependencies for compute_communities: ['extract_graph']
+13:40:20,150 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:20,151 datashaper.workflow.workflow INFO executing verb compute_communities
+13:40:32,713 graphrag.index.run.workflow INFO dependencies for create_final_entities: ['extract_graph']
+13:40:32,714 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:32,715 datashaper.workflow.workflow INFO executing verb create_final_entities
+13:40:32,717 graphrag.index.exporter INFO exporting parquet table create_final_entities.parquet
+13:40:32,835 graphrag.index.run.workflow INFO dependencies for create_final_relationships: ['extract_graph']
+13:40:32,835 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:32,836 datashaper.workflow.workflow INFO executing verb create_final_relationships
+13:40:32,845 graphrag.index.exporter INFO exporting parquet table create_final_relationships.parquet
+13:40:32,962 graphrag.index.run.workflow INFO dependencies for create_final_communities: ['extract_graph']
+13:40:32,962 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:32,963 datashaper.workflow.workflow INFO executing verb create_final_communities
+13:40:32,988 graphrag.index.exporter INFO exporting parquet table create_final_communities.parquet
+13:40:33,96 graphrag.index.run.workflow INFO dependencies for create_final_nodes: ['compute_communities', 'extract_graph']
+13:40:33,96 graphrag.index.run.workflow WARNING Dependency table compute_communities not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:33,97 graphrag.index.run.workflow WARNING Dependency table extract_graph not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:33,98 datashaper.workflow.workflow INFO executing verb create_final_nodes
+13:40:33,110 graphrag.index.exporter INFO exporting parquet table create_final_nodes.parquet
+13:40:33,221 graphrag.index.run.workflow INFO dependencies for create_final_text_units: ['create_final_relationships', 'create_final_entities', 'create_base_text_units']
+13:40:33,222 graphrag.utils.storage INFO reading table from storage: create_final_relationships.parquet
+13:40:33,228 graphrag.utils.storage INFO reading table from storage: create_final_entities.parquet
+13:40:33,232 graphrag.index.run.workflow WARNING Dependency table create_base_text_units not found in storage: it may be a runtime-only in-memory table. If you see further errors, this may be an actual problem.
+13:40:33,233 datashaper.workflow.workflow INFO executing verb create_final_text_units
+13:40:33,252 graphrag.index.exporter INFO exporting parquet table create_final_text_units.parquet
+13:40:33,360 graphrag.index.run.workflow INFO dependencies for create_final_community_reports: ['create_final_relationships', 'create_final_entities', 'create_final_communities', 'create_final_nodes']
+13:40:33,360 graphrag.utils.storage INFO reading table from storage: create_final_relationships.parquet
+13:40:33,364 graphrag.utils.storage INFO reading table from storage: create_final_entities.parquet
+13:40:33,368 graphrag.utils.storage INFO reading table from storage: create_final_communities.parquet
+13:40:33,372 graphrag.utils.storage INFO reading table from storage: create_final_nodes.parquet
+13:40:33,377 datashaper.workflow.workflow INFO executing verb create_final_community_reports
+13:40:33,388 graphrag.index.operations.summarize_communities.prepare_community_reports INFO Number of nodes at level=0 => 12
+13:40:33,454 graphrag.index.exporter INFO exporting parquet table create_final_community_reports.parquet
+13:40:33,567 graphrag.index.run.workflow INFO dependencies for generate_text_embeddings: ['create_final_text_units', 'create_final_community_reports', 'create_final_relationships', 'create_final_entities', 'create_final_documents']
+13:40:33,567 graphrag.utils.storage INFO reading table from storage: create_final_text_units.parquet
+13:40:33,571 graphrag.utils.storage INFO reading table from storage: create_final_community_reports.parquet
+13:40:33,576 graphrag.utils.storage INFO reading table from storage: create_final_relationships.parquet
+13:40:33,579 graphrag.utils.storage INFO reading table from storage: create_final_entities.parquet
+13:40:33,583 graphrag.utils.storage INFO reading table from storage: create_final_documents.parquet
+13:40:33,586 datashaper.workflow.workflow INFO executing verb generate_text_embeddings
+13:40:33,590 graphrag.index.flows.generate_text_embeddings INFO Creating embeddings
+13:40:33,590 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding text_unit.text: default-text_unit-text
+13:40:33,820 graphrag.index.operations.embed_text.strategies.openai INFO embedding 1 inputs via 1 snippets using 1 batches. max_batch_size=16, max_tokens=8191
+13:40:33,842 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding community.full_content: default-community-full_content
+13:40:33,846 graphrag.index.operations.embed_text.strategies.openai INFO embedding 1 inputs via 1 snippets using 1 batches. max_batch_size=16, max_tokens=8191
+13:40:33,859 graphrag.index.operations.embed_text.embed_text INFO using vector store lancedb with container_name default for embedding entity.description: default-entity-description
+13:40:33,862 graphrag.index.operations.embed_text.strategies.openai INFO embedding 12 inputs via 12 snippets using 1 batches. max_batch_size=16, max_tokens=8191
+13:40:33,905 graphrag.cli.index INFO All workflows completed successfully.

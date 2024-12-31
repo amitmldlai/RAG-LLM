@@ -1,0 +1,4 @@
+config:
+  INPUT_FOLDER: "input"  # Ensure this folder exists
+  UPLOAD_FOLDER: "uploads"
+  venv_path: "${cwd}/venv/Scripts/python"

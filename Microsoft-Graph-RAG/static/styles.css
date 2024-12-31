@@ -1,0 +1,197 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.upload-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between input and button */
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    display: inline-block;
+    width: calc(100% - 120px); /* Adjust width to fit button */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+#upload-button {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#upload-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+button {
+    background-color: #007bff; /* Default button color */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker green on hover */
+}
+
+textarea {
+    width: 100%;
+    height: 200px; /* Increased height */
+    margin-top: 10px;
+    padding: 12px;
+    resize: vertical;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.search-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-family: 'Arial', sans-serif; /* Use professional font */
+}
+
+.search-buttons label {
+    flex-grow: 1;
+    margin: 0 10px;
+    text-align: center;
+    font-size: 16px; /* Increase font size */
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Add some spacing */
+}
+
+#analyze-button {
+    display: block;
+    margin: 20px auto; /* Centering the button */
+    width: 50%; /* Adjust width */
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#analyze-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.response-output {
+    height: 200px;
+}
+
+
+.train-options {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 20px; /* Space between Upload button and Train options */
+}
+
+#train-label {
+    margin-right: 20px;
+    margin-left: 5px; /* Adjust this value as needed */
+    font-size: 16px; /* Optional: Change font size for better visibility */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 75px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px; /* Makes the background circular */
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%; /* Makes the toggle circle */
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3; /* Change background color when checked */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px); /* Moves the circle when checked */
+}
+
+
+
+
+
+.progress-container {
+    margin: 10px 0;
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+    margin-top: 5px;
+}

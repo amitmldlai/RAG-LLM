@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>FactFusion</title>
+</head>
+<body>
+    <div class="container">
+        <h1>FactFusion</h1>
+       <form class="upload-form" id="upload-form" enctype="multipart/form-data">
+           <input type="file" name="file" required>
+           <button id="upload-button">Upload</button>
+        <!-- Toggle Button for Training Options -->
+       <div class="train-options">
+    <label class="switch">
+        <input type="checkbox" id="train-toggle">
+        <span class="slider"></span>
+    </label>
+    <span id="train-label">Train Latest</span>
+    <button id="train-button">Train</button>
+</div>
+
+
+
+       </form>
+        <div class="search-buttons">
+            <label>
+                <input type="radio" name="search-type" value="local" checked> Local Search
+            </label>
+            <label>
+                <input type="radio" name="search-type" value="global"> Global Search
+            </label>
+        </div>
+        <textarea id="query-input" placeholder="Enter your query here..."></textarea>
+        <button id="analyze-button">Analyze</button>
+        <textarea id="response-output" rows="10" cols="50" placeholder="Results will appear here..."></textarea>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
