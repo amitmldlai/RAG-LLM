@@ -78,7 +78,6 @@ This application enables users to upload documents (e.g., `.txt` or `.pdf`) and 
 
 ## Notes
 
-- Ensure the input and upload directories exist before running the application.
 - The application is designed to work with Python 3.10+.
 - Train your RAG system after uploading documents to ensure queries are up-to-date.
 
