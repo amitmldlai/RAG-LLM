@@ -1,0 +1,5 @@
+llama-index
+unstructured
+lxml
+llama-index-retrievers-bm25
+python-dotenv
