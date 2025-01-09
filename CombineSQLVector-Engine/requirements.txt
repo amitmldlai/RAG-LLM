@@ -1,0 +1,3 @@
+wikipedia
+llama-index-readers-wikipedia
+llama-index-readers-web
