@@ -27,9 +27,6 @@ csv_file_path = os.path.join(data_path, "netflix.csv")
 db_name = os.path.join(db_path, 'netflix.db')
 table_name = 'netflix'
 
-if not glob.glob(f'{db_path}/*.db'):
-    create_db_from_csv_with_pandas(csv_file_path, db_name, table_name)
-
 
 def load_or_parse_data():
     data_file = os.path.join(parsed_path, "parsed_data.pkl")
@@ -76,6 +73,8 @@ def vector_query_engine():
 
 
 def sql_query_engine():
+    if not glob.glob(f'{db_path}/*.db'):
+        create_db_from_csv_with_pandas(csv_file_path, db_name, table_name)
     engine = create_engine(f"sqlite:///{db_name}", future=True)
     sql_database = SQLDatabase(engine)
     query_engine = NLSQLTableQueryEngine(sql_database=sql_database, tables=[table_name])
