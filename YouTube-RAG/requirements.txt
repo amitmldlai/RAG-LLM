@@ -1,0 +1,7 @@
+pytube
+moviepy
+yt_dlp
+llama-index
+llama-index-vector-stores-lancedb
+SpeechRecognition
+assemblyai
