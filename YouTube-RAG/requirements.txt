@@ -5,3 +5,5 @@ llama-index
 llama-index-vector-stores-lancedb
 SpeechRecognition
 assemblyai
+llama-index-multi-modal-llms-gemini
+llama-index-embeddings-google
